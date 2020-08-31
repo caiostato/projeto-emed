@@ -1,0 +1,94 @@
+﻿<Window x:Class="projeto_emed.create_account_adm_screen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projeto_emed"
+        mc:Ignorable="d"
+        Title="create_account_adm_screen" Height="720" Width="1280">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+    </Window.Resources>
+    <Grid Background="#FF363636">
+        <Image HorizontalAlignment="Left" Height="292" Margin="114,192,0,0" VerticalAlignment="Top" Width="300" Source="adm_img_png.png"/>
+        <Label Content="CRM/CRF" HorizontalAlignment="Left" Margin="602,265,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="112" FontSize="24"/>
+        <Label Content="Nome" HorizontalAlignment="Left" Margin="634,86,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="80" FontSize="24"/>
+        <Label Content="Senha" HorizontalAlignment="Left" Margin="634,359,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="80" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="720,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="720,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="720,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416"/>
+        <Button 
+            Content="Criar Conta" HorizontalAlignment="Left" Margin="866,618,0,0" VerticalAlignment="Top" Width="146"  Height="40" UseLayoutRounding="True" ClipToBounds="True" FontFamily="Calibri" FontSize="29" RenderTransformOrigin="0,-4" Style="{DynamicResource roundedButton1}" Background="White"
+         >
+            <Button.Resources>
+                <Style x:Key="roundedButton1" TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                    <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true" CornerRadius="15" VerticalAlignment="Stretch">
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsDefaulted" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                        <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="Confirmar Senha" HorizontalAlignment="Left" Margin="526,457,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="188" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="720,469,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416"/>
+        <Label Content="CPF" HorizontalAlignment="Left" Margin="656,180,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="58" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="720,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416"/>
+        <Label Content="Permissão da conta" HorizontalAlignment="Left" Margin="499,539,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="215" FontSize="24"/>
+        <RadioButton Content="Farmacêutico" HorizontalAlignment="Left" Margin="972,558,0,0" VerticalAlignment="Top" Height="27" Width="144" Foreground="White" FontSize="20"/>
+        <RadioButton Content="Médico" HorizontalAlignment="Left" Margin="774,558,0,0" VerticalAlignment="Top" Height="27" Width="130" Foreground="White" FontSize="20"/>
+        <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" BorderBrush="{x:Null}" Height="70" Click="backAdmScreen">
+            <Button.Background>
+                <ImageBrush ImageSource="back_button2.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
